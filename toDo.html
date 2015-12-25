@@ -1,0 +1,46 @@
+<!doctype <!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="toDo.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script type="text/javascript" src="toDo.js"></script>>
+	<title>toDo List</title>
+</head>
+<body ng-app="myapp" ng-controller="myCtrl">
+	<div class="list">
+		<h3>Pending Tasks</h3>
+		<div class="subList">
+			<h4 style="text-align:center">Sample</h4>
+
+				<ul>
+					<div class="addedTask" my-draggable ng-repeat="todo in list track by $index" >
+						<li>
+							<span class="done-{{ todo.done }}"> {{ todo.text }} <br> Desc:{{todo.description}}</span>
+						</li>
+					</div>
+				</ul>
+				
+			
+		</div>
+		
+	</div>
+	<div class="list">
+		<h3>In Progress</h3>
+	</div>
+	<div class="list">
+		<h3>Completed</h3>
+	</div>
+	<div class="list">
+		<h3>Add Task</h3>
+		<form ng-submit="submit()" name="myForm" class="my-form" >
+			
+			<input type="text" ng-model="toDoText" placeholder="Enter task name" />
+			<textarea type="text" ng-model="toDoDesc" placeholder="Add Description about Task"></textarea>
+			<input type="text" ng-model="toDoDate" placeholder="DD/MM/YY" />
+			<button >Add Task</button>
+		</form>
+		
+	</div>
+
+</body>
+</html>
